@@ -29,7 +29,10 @@ import kotlinx.coroutines.flow.getAndUpdate
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
-
+/**
+ * 在[DataModule](com.google.samples.modularization.core.di.DataModule)定义了Hilt
+ *
+ */
 class DefaultMyModelRepository  : MyModelRepository {
     @Inject
     constructor(){

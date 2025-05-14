@@ -8,7 +8,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import javax.inject.Inject
 
-class MyInterfaceImpl @Inject constructor(): MyInterface {
+class MyInterfaceImpl : MyInterface {
+    @Inject constructor(){
+        Log.d("ztqmy", "MyInterfaceImpl: 构造函数")
+    }
+
     override fun myMethod() : String{
         Log.d("ztqmy", "myMethod: ")
         return "myMethod"
