@@ -16,12 +16,14 @@
 
 package com.google.samples.modularization.feature.list.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.samples.modularization.core.data.DefaultMyModelRepository
 import com.google.samples.modularization.core.data.DefaultMyModelRepository2
 import com.google.samples.modularization.core.data.MyModel
 import com.google.samples.modularization.core.data.MyModelRepository
+import com.google.samples.modularization.core.obstract.MyInterface
 import com.google.samples.modularization.feature.list.ui.ListUiState.Success
 import com.google.samples.modularization.util.timestampToReadableDate
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,9 +37,10 @@ import javax.inject.Inject
 @HiltViewModel
 class ListViewModel @Inject constructor(
     private val myModelRepository: DefaultMyModelRepository2,
-    ztq:Ztq
+    ztq:Ztq,
+    myInterface: MyInterface
 ) : ViewModel() {
-
+    val str = myInterface.myMethod().apply { Log.d("ztqmy", "获取到Impl了") }
     val uiState: StateFlow<ListUiState> = myModelRepository
         .observeAllModels
         .map<List<MyModel>, ListUiState> { items ->
