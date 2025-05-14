@@ -17,11 +17,14 @@
 package com.google.samples.modularization.core.di
 
 import com.google.samples.modularization.core.data.DefaultMyModelRepository
+import com.google.samples.modularization.core.data.DefaultMyModelRepository2
+import com.google.samples.modularization.core.data.DefaultMyModelRepository3
 import com.google.samples.modularization.core.data.MyModelRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,4 +32,20 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindMyModelRepository(repository: DefaultMyModelRepository): MyModelRepository
+
+    @MyModelRepositoryImpl2
+    @Binds
+    abstract fun bindMyModelRepository2(repository: DefaultMyModelRepository2): MyModelRepository
+
+    @MyModelRepositoryImpl3
+    @Binds
+    abstract fun bindMyModelRepository3(repository: DefaultMyModelRepository3): MyModelRepository
 }
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class MyModelRepositoryImpl2
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class MyModelRepositoryImpl3

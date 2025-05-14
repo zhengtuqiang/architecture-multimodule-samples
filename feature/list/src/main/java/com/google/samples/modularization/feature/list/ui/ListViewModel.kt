@@ -19,8 +19,9 @@ package com.google.samples.modularization.feature.list.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.samples.modularization.core.data.DefaultMyModelRepository2
 import com.google.samples.modularization.core.data.MyModel
+import com.google.samples.modularization.core.data.MyModelRepository
+import com.google.samples.modularization.core.di.MyModelRepositoryImpl3
 import com.google.samples.modularization.core.obstract.MyInterface
 import com.google.samples.modularization.feature.list.ui.ListUiState.Success
 import com.google.samples.modularization.util.timestampToReadableDate
@@ -34,7 +35,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val myModelRepository: DefaultMyModelRepository2,
+    @MyModelRepositoryImpl3 private val myModelRepository: MyModelRepository,
     private val myInterface: MyInterface,
     private val ztq:Ztq
 ) : ViewModel() {
