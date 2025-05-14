@@ -18,6 +18,8 @@ package com.google.samples.modularization.feature.list.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.samples.modularization.core.data.DefaultMyModelRepository
+import com.google.samples.modularization.core.data.DefaultMyModelRepository2
 import com.google.samples.modularization.core.data.MyModel
 import com.google.samples.modularization.core.data.MyModelRepository
 import com.google.samples.modularization.feature.list.ui.ListUiState.Success
@@ -32,7 +34,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val myModelRepository: MyModelRepository
+    private val myModelRepository: DefaultMyModelRepository2,
+    ztq:Ztq
 ) : ViewModel() {
 
     val uiState: StateFlow<ListUiState> = myModelRepository

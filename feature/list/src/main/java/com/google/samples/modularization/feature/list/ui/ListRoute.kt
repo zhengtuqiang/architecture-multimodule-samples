@@ -28,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.samples.modularization.ui.Loading
@@ -66,7 +67,7 @@ internal fun Content(
     LazyColumn(modifier = modifier.fillMaxSize()) {
         itemsIndexed(items = items) { index, item ->
             ListItem(
-                headlineText = { Text(text = item.title) },
+                headlineText = { Text(text = item.title,color=Color.Magenta) },
                 trailingContent = { Text(text = item.date) },
                 leadingContent = {
                     Checkbox(

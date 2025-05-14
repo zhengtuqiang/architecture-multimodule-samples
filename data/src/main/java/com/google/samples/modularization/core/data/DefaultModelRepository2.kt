@@ -30,10 +30,10 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
-class DefaultMyModelRepository  : MyModelRepository {
+class DefaultMyModelRepository2  : MyModelRepository {
     @Inject
     constructor(){
-        Log.d("ztqmy", ": DefaultMyModelRepository构造函数")
+        Log.d("ztqmy", ": DefaultMyModelRepository2构造函数")
     }
 
 
